@@ -1,0 +1,11 @@
+---
+  - hosts: loadbalancer
+    tasks:
+      - name: retrive hostname
+        command: hostname
+        register: output
+      
+      - name: display hostname
+        debug:
+          var: output.stdout
+

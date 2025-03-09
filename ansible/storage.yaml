@@ -1,0 +1,11 @@
+---
+  - hosts: all
+    tasks:
+      - name: retrive storage
+        command: "df -h"
+        register: output
+      
+      - name: display storage
+        debug:
+          var: output.stdout
+

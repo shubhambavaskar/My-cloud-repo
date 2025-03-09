@@ -1,0 +1,16 @@
+---
+  - hosts: web
+    become: true
+    tasks:
+      - name: Install multiple packages at a time
+        apt:
+          name: "{{ item }}"
+          state: present
+          update_cache: yes
+        with_items:
+          - apache2
+          - git
+          - python3-pip
+          - curl
+          - wget
+
